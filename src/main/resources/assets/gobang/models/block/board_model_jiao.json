@@ -1,7 +1,7 @@
 {
     "textures": {
         "cemian": "gobang:blocks/board/board2",
-        "shangmian": "gobang:blocks/board/board_main"
+        "shangmian": "gobang:blocks/board/board_jiao"
     },
     "elements": [
         {

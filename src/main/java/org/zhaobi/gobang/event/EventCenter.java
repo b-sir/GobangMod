@@ -8,7 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.PlayerInteractEvent;
+import net.minecraftforge.fml.common.eventhandler.EventPriority;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class EventCenter {
@@ -27,13 +29,37 @@ public class EventCenter {
     	World world = event.getWorld();
     	
     	if (world.isRemote) {
-			GobangMod.logger.info("Righy Click S");
+			GobangMod.logger.info("Righy Click C");
     	}
     	else
     	{
-    		GobangMod.logger.info("Righy Click C");
+    		GobangMod.logger.info("Righy Click S");
     	}
     	
+    }
+	
+	@SubscribeEvent(priority = EventPriority.HIGH) //手里有物品 右键时调用
+    public void onPlayerRightClickItem(PlayerInteractEvent.RightClickItem event) {
+		World world = event.getWorld();
+		
+		
+		if (world.isRemote) {
+			GobangMod.logger.info("Right Click IIIII C");
+    	}
+    	else
+    	{
+    		GobangMod.logger.info("Right Click IIIII S");
+    	}
+		
+		
+		
+		event.setCanceled(true);
+	}
+	
+	@SubscribeEvent
+    public void pickupItem(EntityItemPickupEvent event) {
+        System.out.println("Item picked up!");
+        
     }
 	
 	/*

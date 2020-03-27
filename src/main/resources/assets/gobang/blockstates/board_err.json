@@ -1,0 +1,25 @@
+{
+    "variants": {
+        "north=true,east=true,south=true,west=true": {"model": "gobang:board_model"},
+        
+        "north=false,east=true,south=true,west=true": {"model": "gobang:board_model_bian"},
+        "north=true,east=false,south=true,west=true": {"model": "gobang:board_model_bian", "y": 90},
+        "north=true,east=true,south=false,west=true": {"model": "gobang:board_model_bian", "y": 180},
+        "north=true,east=true,south=true,west=false": {"model": "gobang:board_model_bian", "y": 270},
+        
+        "north=false,east=false,south=true,west=true": {"model": "gobang:board_model"},
+        "north=false,east=true,south=false,west=true": {"model": "gobang:board_model"},
+        "north=false,east=true,south=true,west=false": {"model": "gobang:board_model"},
+        "north=true,east=false,south=false,west=true": {"model": "gobang:board_model"},
+        "north=true,east=false,south=true,west=false": {"model": "gobang:board_model"},
+        "north=true,east=true,south=false,west=false": {"model": "gobang:board_model"},
+        
+        "north=true,east=false,south=false,west=false": {"model": "gobang:board_model"},
+        "north=false,east=true,south=false,west=false": {"model": "gobang:board_model"},
+        "north=false,east=false,south=true,west=false": {"model": "gobang:board_model"},
+        "north=false,east=false,south=false,west=true": {"model": "gobang:board_model"},
+        
+        "north=false,east=false,south=false,west=false": {"model": "gobang:board_model"}
+    }
+    
+}

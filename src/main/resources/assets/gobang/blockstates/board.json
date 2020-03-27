@@ -1,5 +1,31 @@
 {
-    "variants": {
-        "normal": { "model": "gobang:board_model" }
-    }
+    "multipart": [
+        {   "when": {"north": true, "east": true, "south": false, "west": false},
+            "apply": { "model": "gobang:board_model_jiao", "y": 90 }
+        },
+        {   "when": {"north": true, "east": false, "south": false, "west": true},
+            "apply": { "model": "gobang:board_model_jiao", "y": 180 }
+        },
+        {   "when": { "north": false, "east": true, "south": true, "west": false},
+            "apply": { "model": "gobang:board_model_jiao", "y": 0 }
+        },
+        {   "when": { "north": false, "east": false,"south": true, "west": true},
+            "apply": { "model": "gobang:board_model_jiao", "y": 270 }
+        },
+        {   "when": { "north": false, "east": true, "south": true, "west": true},
+            "apply": { "model": "gobang:board_model_bian", "y": 90 }
+        },
+        {   "when": {"north": true, "east": false, "south": true, "west": true},
+            "apply": { "model": "gobang:board_model_bian", "y": 180 }
+        },
+        {   "when": {"north": true, "east": true, "south": false, "west": true},
+            "apply": { "model": "gobang:board_model_bian", "y": 270 }
+        },
+        {   "when": {"north": true, "east": true, "south": true, "west": false},
+            "apply": { "model": "gobang:board_model_bian", "y": 0 }
+        },
+        {   "when": {"north": true, "east": true, "south": true, "west": true},
+            "apply": { "model": "gobang:board_model" }
+        }
+    ]
 }
