@@ -1,0 +1,20 @@
+{
+    "textures": {
+        "cemian": "gobang:blocks/board2",
+        "shangmian": "gobang:blocks/board1"
+    },
+    "elements": [
+        {
+          "from": [ 0, 0, 0 ],
+          "to": [ 16, 16, 16 ],
+          "faces": {
+            "down":  { "texture": "#shangmian", "cullface": "down" },
+            "up":    { "texture": "#shangmian", "cullface": "up" },
+            "north": { "texture": "#cemian", "cullface": "north" },
+            "south": { "texture": "#cemian", "cullface": "south" },
+            "west":  { "texture": "#cemian", "cullface": "west" },
+            "east":  { "texture": "#cemian", "cullface": "east" }
+          }
+        }
+    ]
+}

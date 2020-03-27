@@ -8,6 +8,8 @@ public class ClientProxy extends CommonProxy {
 	public void preInit(FMLPreInitializationEvent event) //预初始化
     {
 		super.preInit(event);
+		
+		this.initModels();
     }
 
     public void init(FMLInitializationEvent event) //初始化
@@ -18,5 +20,10 @@ public class ClientProxy extends CommonProxy {
     public void postInit(FMLPostInitializationEvent event) //初始化后
     {
     	super.postInit(event);
+    }
+    
+    private void initModels()
+    {
+    	this.b_Board.clientInit();
     }
 }

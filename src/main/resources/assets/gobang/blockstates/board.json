@@ -1,0 +1,5 @@
+{
+    "variants": {
+        "normal": { "model": "gobang:board_model" }
+    }
+}
