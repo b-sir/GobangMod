@@ -68,12 +68,10 @@ public class Board extends Block {
 	
 	@Override
 	public IBlockState getActualState(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		state.withProperty(NORTH, (worldIn.getBlockState(pos.north()).getBlock() instanceof Board))
+		return state.withProperty(NORTH, (worldIn.getBlockState(pos.north()).getBlock() instanceof Board))
 			.withProperty(SOUTH, (worldIn.getBlockState(pos.south()).getBlock() instanceof Board))
 			.withProperty(EAST, (worldIn.getBlockState(pos.east()).getBlock() instanceof Board))
 			.withProperty(WEST, (worldIn.getBlockState(pos.west()).getBlock() instanceof Board)) ;
-		
-		return state;
 	}
 	
 
