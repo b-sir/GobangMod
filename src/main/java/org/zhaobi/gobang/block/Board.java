@@ -11,7 +11,10 @@ import net.minecraft.block.properties.PropertyBool;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
+import net.minecraft.util.EnumFacing;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
@@ -48,8 +51,35 @@ public class Board extends Block {
 	@Override
 	public void onBlockAdded(World worldIn, BlockPos pos, IBlockState state)
     {
-		
+		worldIn.setBlockToAir(pos.up());
+		worldIn.setBlockToAir(pos.up(2));
     }
+	
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ)
+    {
+		IBlockState state2 = getActualState(state, worldIn, pos);
+		if (state2.getValue(NORTH) == false 
+				&& state2.getValue(SOUTH) == false 
+				&& state2.getValue(EAST) == false 
+				&& state2.getValue(WEST) == false )
+		{ //单独棋盘Block，点击后展开
+			GobangMod.logger.info(" Chess Board Opened!  {}", worldIn.isRemote?"C":"S");
+			this.openChessBoard(worldIn, pos, state2);
+		}
+        return false;
+    }
+	
+	//将单独的棋盘Block展开15x15大小
+	private void openChessBoard(World worldIn, BlockPos pos, IBlockState state) 
+	{
+		for(int i = -7; i <=7; i++) {
+			for(int j = -7; j <=7; j++) {
+				if(i == 0 && j == 0) continue;
+				worldIn.setBlockState(pos.add(i, 0, j), this.getDefaultState());
+			}
+		}
+	}
 	
 	@Override
 	public BlockStateContainer createBlockState()

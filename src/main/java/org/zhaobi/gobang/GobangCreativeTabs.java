@@ -8,7 +8,7 @@ public class GobangCreativeTabs extends CreativeTabs {
 	public static GobangCreativeTabs tabGobang = new GobangCreativeTabs();
 	
 	public GobangCreativeTabs() {
-		super("Gabang");
+		super("gobang");
 	}
 
 	@Override

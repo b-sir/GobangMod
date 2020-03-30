@@ -29,6 +29,9 @@
         },
         {   "when": {"north": true, "east": true, "south": true, "west": true},
             "apply": { "model": "gobang:board_model" }
+        },
+        {   "when": {"north": false, "east": false, "south": false, "west": false},
+            "apply": { "model": "gobang:board_model_alone" }
         }
     ]
 }
